@@ -1,0 +1,47 @@
+void Grid::updateGrid() {
+    // create a vector to store all the current values of cells' states
+    vector<vector<bool>> newStates;
+    for (int row = 0; row < height; ++row) {
+        vector<bool> oneRow;
+        newStates.push_back(oneRow);
+        for (int col = 0; col < width; ++col) {
+            bool oneCell;
+            newStates[row].push_back(oneCell);
+        }
+    }
+    // update neighbours for each cell
+    countNeighbours();
+    // update state for each cell and store current states in newStates
+    for (int row = 0; row < height; ++row) {
+        for (int col = 0; col < width; ++col) {
+            Cell *target = theGrid[row][col];
+            bool oldState = theGrid[row][col]->getState();
+            bool CHANGED = false;
+            while (target != nullptr) { // recursively update each rule for cells
+                target = target->update();
+                // break when cell's state changes
+                if (target && target->getState() != oldState) {
+                    CHANGED = true;
+                    target->flip(); // convert cell back to oldState;
+                    break;
+                }
+            }
+            if (CHANGED) {
+                // store current state in newStates
+                newStates[row][col] = ! oldState;
+            } else {
+                newStates[row][col] = oldState;
+            }
+        }
+    }
+    // update current states in theGrid
+    for (int row = 0; row < height; ++row) {
+        for (int col = 0; col < width; ++col) {
+            if (newStates[row][col]) {
+                theGrid[row][col]->setAlive();
+            } else {
+                theGrid[row][col]->setDead();
+            }
+        }
+    }
+}

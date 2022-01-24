@@ -1,0 +1,21 @@
+new 3 3
+p
+df9*
+o 0 0
+o 0 1
+o 0 2
+o 1 0
+o 2 0
+o 2 1
+o 2 2
+o 1 2
+p
+up
+f 1 1 8
+up
+df1*
+o 1 1
+p
+up
+up
+quit

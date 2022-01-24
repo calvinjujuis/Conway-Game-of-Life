@@ -1,0 +1,32 @@
+2 2
+
+o 1 0
+o 0 1
+o 1 1
+up
+up
+a 0 0
+up
+up
+df1*
+p
+up
+o 0 0
+p
+up
+up
+dt1*
+p
+up
+up
+up
+o 0 0
+p
+up
+up
+up
+
+
+
+
+

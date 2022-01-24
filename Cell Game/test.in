@@ -1,0 +1,26 @@
+dt2*
+o 1 1
+o 0 1
+a 0 0
+l 1 0
+up
+up
+a 0 0
+a 1 0
+up
+up
+up
+l 1 0
+up
+f 0 0 1
+up
+up
+f 1 0 2
+up
+up
+o 1 1
+l 0 1
+a 0 1
+up
+up
+up
